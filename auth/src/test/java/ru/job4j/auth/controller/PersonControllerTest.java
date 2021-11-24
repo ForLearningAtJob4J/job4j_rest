@@ -50,7 +50,7 @@ class PersonControllerTest {
 
     @Test
     public void whenFindAll() throws Exception {
-        when(storeService.findAll()).thenReturn(persons);
+        when(storeService.findAllPerson()).thenReturn(persons);
 
         mockMvc.perform(get("/person/"))
                 .andDo(print())
@@ -66,7 +66,7 @@ class PersonControllerTest {
     public void whenFindByIdIsFound() throws Exception {
         int personId = 1;
         int index = 0;
-        when(storeService.findById(personId))
+        when(storeService.findPersonById(personId))
                 .thenReturn(java.util.Optional.ofNullable(persons.get(index)));
 
         mockMvc.perform(get("/person/{id}", personId))

@@ -21,13 +21,13 @@ public class PersonController {
 
     @GetMapping("/")
     public List<Person> findAll() {
-        return StreamSupport.stream(storeService.findAll().spliterator(), false
+        return StreamSupport.stream(storeService.findAllPerson().spliterator(), false
         ).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Person> findById(@PathVariable int id) {
-        var person = this.storeService.findById(id);
+        var person = this.storeService.findPersonById(id);
         return new ResponseEntity<>(
                 person.orElse(new Person()),
                 person.isPresent() ? HttpStatus.OK : HttpStatus.NOT_FOUND
