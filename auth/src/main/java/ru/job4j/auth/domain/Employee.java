@@ -11,14 +11,14 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    String firstName;
-    String lastName;
-    String iid;
+    private String firstName;
+    private String lastName;
+    private String iid;
 
     private Timestamp hired;
 
     @OneToMany
-    List<Person> accounts;
+    private List<Person> accounts;
 
     public int getId() {
         return id;
